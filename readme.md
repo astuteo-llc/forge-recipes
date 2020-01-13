@@ -12,13 +12,13 @@ success_msg () { echo -e "\e[32m*** $1\e[0m"; }
 info_msg () { echo -e "\e[34m*** $1\e[0m"; }
 print_msg () { echo -e ">> $1"; }
 
-# Install the nginx partials from https://github.com/nystudio107/nginx-craft
+# Install https://github.com/astuteo-llc/forge-recipes.git
 install_mysql_config () {
 
   if [ ! -d "/etc/mysql/conf.d/astuteo" ]; then
     print_msg "Installing mysql conf.ds"
-    git clone git@github.com:astuteo-llc/forge-recipes.git astuteo-temp;
-    cp -R astuteo-temp/mysql/conf.d /etc/mysql/conf.d;
+    git clone https://github.com/astuteo-llc/forge-recipes.git astuteo-temp;
+    cp -R astuteo-temp/mysql/conf.d/* /etc/mysql/conf.d;
     rm -rf astuteo-temp;
   fi
 
